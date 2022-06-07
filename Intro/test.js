@@ -1,0 +1,1 @@
+console.log('Önemli bir bildirim TEST.JS')
