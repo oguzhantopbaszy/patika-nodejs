@@ -1,0 +1,19 @@
+{
+  "name": "nodebasics",
+  "version": "1.0.0",
+  "description": "node test app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index", "_comment": "npm start ile çalışması için yandaki start'ı ekledik."
+  },
+  "keywords": [
+    "node",
+    "npm"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.3"
+  }
+}
