@@ -1,34 +1,27 @@
-const http = require('http')
+const Koa = require("koa");
+const app = new Koa();
 
-const server = http.createServer((req,res) => {
-
-    const url = req.url;
-
-    if(url === '/') {
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write('<h1>INDEX SAYFASI</h1>');
-    }
-
-    else if (url === '/about') {
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write('ABOUT SAYFASI')
-    }
-
-    else if (url === '/contact') {
-        res.writeHead(200, {'Content-Type': 'text/html'})
-        res.write('CONTACT SAYFASI')
-    }
-
-    else {
-        res.writeHead(404, {'Content-Type': 'text/html'})
-        res.write('<h1>404 SAYFA BULUNAMADI</h1>')
-    }
-
-    res.end()
+app.use((ctx) => {
+  if (ctx.url === "/") {
+    ctx.status = 200;
+    ctx.body = "<h1>Index Safyası</h1>";
+  }
+  else if (ctx.url === "/about"){
+    ctx.status = 200;
+    ctx.body = "<h1>Hakkimda Safyası</h1>";
+  }
+  else if (ctx.url === "/contact"){
+    ctx.status = 200;
+    ctx.body = "<h1>Iletisim Safyası</h1>";
+  }
+  else{
+    ctx.status = 404;
+    ctx.body = "<h1>404 Sayfa Bulunamadı.</h1>.";
+  }
 });
 
-const port = 3000;
+port = 3000;
 
-server.listen(port, () => {
-    console.log(`Sunucu port ${port} de başlatıldı.`)
-})
+app.listen(port, () => {
+    console.log(`${port} portunda sunucu başlatıldı.`);
+  });
